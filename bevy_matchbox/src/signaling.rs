@@ -97,6 +97,8 @@ where
     Cb: SignalingCallbacks,
     S: SignalingState,
 {
+    type Out = ();
+
     fn apply(self, world: &mut bevy::prelude::World) {
         world.insert_resource(MatchboxServer::from(self.0))
     }
@@ -127,6 +129,8 @@ where
 struct StopServer;
 
 impl Command for StopServer {
+    type Out = ();
+
     fn apply(self, world: &mut bevy::prelude::World) {
         world.remove_resource::<MatchboxServer>();
     }
